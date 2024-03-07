@@ -5,20 +5,30 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+## Environment
 
-* System dependencies
+- Ruby version: ruby 3.3.0
+- Rails version: Rails 7.1.3.2
 
-* Configuration
+## Getting Started
 
-* Database creation
+1. Install the repo locally with `gh repo clone lizlove/braven-rss`
+2. Run `bundle install` to add gems
+3. Run `bin/rails db:create` to generate a database, in this case using the default sqlite3.
+4. Run `bin/rails db:migrate` to generate the neccessary tables.
 
-* Database initialization
+## Development
 
-* How to run the test suite
+- To build and watch CSS locally run `bin/rails tailwindcss:watch`
+- Otherwise, `bin/rails server` will load the site locally at [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
 
-* Services (job queues, cache servers, search engines, etc.)
+## Notable Dependencies
 
-* Deployment instructions
+- [feedjira](https://github.com/feedjira/feedjira) - RSS feed integration gem for Rails
+- [tailwind for rails](https://github.com/rails/tailwindcss-rails) - CSS styling with Tailwind
 
-* ...
+## Testing
+
+- Run `bin/rails test`
+
+## Deployment instructions
