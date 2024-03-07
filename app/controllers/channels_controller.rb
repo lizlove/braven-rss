@@ -35,6 +35,13 @@ class ChannelsController < ApplicationController
     end
   end
 
+  def destroy
+    @channel = Channel.find(params[:id])
+    @channel.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+
   private 
     def channel_params
       params.require(:channel).permit(:name, :url, :description, :image)
