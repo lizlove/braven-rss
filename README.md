@@ -32,3 +32,9 @@ Things you may want to cover:
 - Run `bin/rails test`
 
 ## Deployment instructions
+
+## TODO
+
+- Style Channel create form
+- Add tests
+- Update Footer copy / links
