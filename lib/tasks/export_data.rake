@@ -1,5 +1,3 @@
-TODO: Improve seed data
-
 namespace :export do
   desc "Export channels to seeds.rb" 
   task :export_to_seeds => :environment do
@@ -12,3 +10,5 @@ namespace :export do
     end 
   end
 end
+
+# TODO: Improve seed data
