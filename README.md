@@ -1,9 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+A simple RSS Reader application using Ruby on Rails
 
 ## Environment
 
@@ -16,13 +13,14 @@ Things you may want to cover:
 2. Run `bundle install` to add gems
 3. Run `bin/rails db:create` to generate a database, in this case using the default sqlite3.
 4. Run `bin/rails db:migrate` to generate the neccessary tables.
+5. Seed the database with channels via `bin/rails db:seed`
 
 ## Development
 
 - To build and watch CSS locally run `bin/rails tailwindcss:build` or `bin/rails tailwindcss:watch`
 - Otherwise, `bin/rails server` will load the site locally at [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
 
-## Notable Dependencies
+## References
 
 - [feedjira](https://github.com/feedjira/feedjira) - RSS feed integration gem for Rails
 - [tailwind for rails](https://github.com/rails/tailwindcss-rails) - CSS styling with Tailwind
@@ -31,10 +29,14 @@ Things you may want to cover:
 
 - Run `bin/rails test`
 
-## Deployment instructions
+## Author
 
-## TODO
+- **Liz Lovero** - [lizlove](https://github.com/lizlove)
 
-- Style Channel create form
-- Add tests
-- Update Footer copy / links
+## Tasklist
+
+- [ ] Fix read status checkbox & update controller
+- [ ] Fix the db:seed to verify an entries query
+- [ ] Add tests
+- [ ] Setup a job to automate updates? Or a button at least to refresh
+- [ ] Update Footer copy / links
