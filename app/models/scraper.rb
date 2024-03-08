@@ -1,5 +1,3 @@
-require "httparty"
-
 class Scraper
   def self.scrape_entries(channel)
     xml = HTTParty.get(channel.url).body

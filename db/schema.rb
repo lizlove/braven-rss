@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_222104) do
     t.text "content"
     t.string "url"
     t.string "author"
+    t.boolean "read", default: false
     t.integer "channel_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

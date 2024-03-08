@@ -6,6 +6,7 @@ class CreateEntries < ActiveRecord::Migration[7.1]
       t.text :content
       t.string :url
       t.string :author
+      t.boolean :read, default: false
       t.references :channel, null: false, foreign_key: true
 
       t.timestamps
