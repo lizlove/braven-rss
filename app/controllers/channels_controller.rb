@@ -52,7 +52,7 @@ class ChannelsController < ApplicationController
     def ingest_entries
       @entries = Scraper.scrape_entries(@channel)
       @entries.each do |entry|
-        copy = entry[:summary] || entry[:content]
+        copy = entry[:summary] || entry[:content] || "No summary available."
         link = entry[:url] || entry[:enclosure_url]
         Entry.create(title: entry[:title], published: entry[:published], content: copy, url: link, author: entry[:author], read: false, channel_id: @channel.id)
       end
