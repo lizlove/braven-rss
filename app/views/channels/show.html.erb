@@ -31,11 +31,14 @@
     <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Episodes</h2>
     <ul role="list" class="divide-y divide-gray-100 w-full">
     <% @channel.entries.each do |entry| %>
-      <li class="flex justify-between gap-x-6 py-5">
+      <li class="<%= entry.read == true ? 'flex justify-between gap-x-6 py-5' : 'flex justify-between gap-x-6 py-5 bg-gray-100' %>">
         <div class="flex min-w-0 gap-x-4 items-center">
           <div class="flex h-6 items-center">
-            <input id="read" aria-describedby="is-read-description" name="read" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-braven-red focus:ring-braven-red">
-            <label class="leading-6 pl-4 text-sm" for="read">Read</label>
+            <% if entry.read %>
+              <%= button_to "Mark as Unread", channel_entry_path(entry), method: :patch, params: { title: entry.title, read: false }, class: "text-xs leading-5 text-gray-500 hover:text-braven-red" %>
+            <% else %>
+              <%= button_to "Mark as Read", channel_entry_path(entry), method: :patch, params: { title: entry.title, read: true }, class: "text-xs leading-5 text-gray-500 hover:text-braven-red" %>
+            <% end %>            
           </div>
           <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="<%= @channel.image %>" alt="<%= @channel.name %>">
           <div class="min-w-0 flex-auto">
