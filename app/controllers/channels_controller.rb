@@ -1,4 +1,6 @@
 class ChannelsController < ApplicationController
+  after_action :ingest_entries, only: [:create, :update]
+
   def index
     @channels = Channel.all
   end
@@ -13,7 +15,6 @@ class ChannelsController < ApplicationController
 
   def create
     @channel = Channel.new(channel_params)
-    # @entries = Scraper.scrape_entries(@channel)
 
     if @channel.save
       redirect_to @channel
@@ -30,7 +31,6 @@ class ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
 
     if @channel.update(Channel_params)
-      # @entries = Scraper.scrape_entries(@channel)
       redirect_to @channel
     else
       render :edit, status: :unprocessable_entity
@@ -47,6 +47,15 @@ class ChannelsController < ApplicationController
   private 
     def channel_params
       params.require(:channel).permit(:name, :url, :description, :image)
+    end
+
+    def ingest_entries
+      @entries = Scraper.scrape_entries(@channel)
+      @entries.each do |entry|
+        copy = entry[:summary] || entry[:content]
+        link = entry[:url] || entry[:enclosure_url]
+        Entry.create(title: entry[:title], published: entry[:published], content: copy, url: link, author: entry[:author], read: false, channel_id: @channel.id)
+      end
     end
 
 end
