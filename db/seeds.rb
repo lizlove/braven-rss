@@ -1,1 +1,4 @@
-[1mUnrecognized command "export:export_to_seed" ([1;4mRails::Command::UnrecognizedCommandError[m[1m)[m
+require 'csv'
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'channels.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: 'utf-8')

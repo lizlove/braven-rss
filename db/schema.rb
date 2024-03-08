@@ -26,9 +26,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_222104) do
     t.text "content"
     t.string "url"
     t.string "author"
-    t.integer "channel_id"
+    t.integer "channel_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_entries_on_channel_id"
   end
 
+  add_foreign_key "entries", "channels"
 end

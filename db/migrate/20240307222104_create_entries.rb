@@ -6,7 +6,7 @@ class CreateEntries < ActiveRecord::Migration[7.1]
       t.text :content
       t.string :url
       t.string :author
-      t.integer :channel_id
+      t.references :channel, null: false, foreign_key: true
 
       t.timestamps
     end
