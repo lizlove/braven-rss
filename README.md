@@ -41,9 +41,10 @@ A simple RSS Reader application using Ruby on Rails
 
 ## Tasklist
 
-- [ ] Fix read status checkbox & update controller
-- [x] Static about page
-- [ ] Fix the db:seed to verify an entries query
 - [ ] Add tests
-- [ ] Setup a job to automate updates? Or a button at least to refresh
+- [ ] Fix the db:seed to verify an entries query
+- [ ] Add button to refresh new RSS entries
+- [ ] Setup a job to automate updates
 - [ ] Update Footer copy / links
+- [x] Fix read status checkbox & update controller
+- [x] Static about page

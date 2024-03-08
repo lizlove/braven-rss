@@ -31,6 +31,7 @@ class ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
 
     if @channel.update(Channel_params)
+      ingest_entries
       redirect_to @channel
     else
       render :edit, status: :unprocessable_entity
@@ -56,6 +57,7 @@ class ChannelsController < ApplicationController
         link = entry[:url] || entry[:enclosure_url]
         Entry.create(title: entry[:title], published: entry[:published], content: copy, url: link, author: entry[:author], read: false, channel_id: @channel.id)
       end
+      puts "Entries ingested", @entries.count
     end
 
 end
