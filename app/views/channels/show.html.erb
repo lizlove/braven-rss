@@ -29,5 +29,22 @@
   </div>
   <div class="px-4 py-5 sm:px-6">
     <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Episodes</h2>
+
+    <% @channel.entries.each do |entry| %>
+      <p>
+        <strong>Title:</strong>
+        <%= entry.title %>
+      </p>
+    
+      <p>
+        <strong>Published:</strong>
+        <%= entry.published %>
+      </p>
+
+    <p>
+      <strong>Author:</strong>
+      <%= entry.author %>
+    </p>
+    <% end %>
   </div>
 </div>
