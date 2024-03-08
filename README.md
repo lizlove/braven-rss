@@ -17,8 +17,14 @@ A simple RSS Reader application using Ruby on Rails
 
 ## Development
 
-- To build and watch CSS locally run `bin/rails tailwindcss:build` or `bin/rails tailwindcss:watch`
-- Otherwise, `bin/rails server` will load the site locally at [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
+1. To build (or watch) CSS locally run
+   `bin/rails tailwindcss:build`
+   or
+   `bin/rails tailwindcss:watch`
+
+2. `bin/rails server` will run the site locally at [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
+
+3. Open your code editor and start developing!
 
 ## References
 
