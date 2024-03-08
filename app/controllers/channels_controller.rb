@@ -13,6 +13,7 @@ class ChannelsController < ApplicationController
 
   def create
     @channel = Channel.new(channel_params)
+    # @entries = Scraper.scrape_entries(@channel)
 
     if @channel.save
       redirect_to @channel
@@ -29,6 +30,7 @@ class ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
 
     if @channel.update(Channel_params)
+      # @entries = Scraper.scrape_entries(@channel)
       redirect_to @channel
     else
       render :edit, status: :unprocessable_entity
@@ -38,7 +40,7 @@ class ChannelsController < ApplicationController
   def destroy
     @channel = Channel.find(params[:id])
     @channel.destroy
-
+    # TODO: Remove the entries associated with the channel? 
     redirect_to root_path, status: :see_other
   end
 

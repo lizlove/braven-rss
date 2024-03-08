@@ -19,7 +19,7 @@ Things you may want to cover:
 
 ## Development
 
-- To build and watch CSS locally `run bin/rails tailwindcss:build` or `bin/rails tailwindcss:watch`
+- To build and watch CSS locally run `bin/rails tailwindcss:build` or `bin/rails tailwindcss:watch`
 - Otherwise, `bin/rails server` will load the site locally at [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
 
 ## Notable Dependencies
